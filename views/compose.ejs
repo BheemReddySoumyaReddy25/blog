@@ -1,0 +1,24 @@
+<%- include("partials/header"); -%>
+<body>
+    <div class="container">
+        <h1>Compose</h1>
+        <form action="/compose" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label>Title</label><br>
+                <input class="form-control" type="text" name="name" autocomplete="off" required>
+                <br>
+                <label>Location</label><br>
+                <input class="form-control" type="text" name="location" autocomplete="off" required>
+                <br>
+                <label>Post</label><br>
+                <textarea class="form-control" name="content" rows="4" cols="5" ></textarea>
+                <br>
+                <label>Upload Image</label><br>
+                <input class="form-control" type="file" id="image" name="image" value="" >
+                <br>
+            </div>
+            <button type="submit" class="btn btn-primary">Publish</button>
+        </form>
+    </div>
+    
+<%- include("partials/footer"); -%>

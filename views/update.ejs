@@ -1,0 +1,26 @@
+<%- include("partials/header"); -%>
+<body>
+    <div class="container">
+        <h1>Compose</h1>
+        <div class="text-center">
+            <img class="rounded"  src="data:image/<%=item.img.contentType%>;base64,<%=item.img.data.toString('base64')%>">
+          </div>
+        <form action="/update/<%= item._id %>" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label>Title</label><br>
+                <input class="form-control" type="text" name="name" value="<%= item.name%>" autocomplete="off" >
+                <br>
+                <label>Location</label><br>
+                <input class="form-control" type="text" name="location" value="<%= item.location%>" autocomplete="off">
+                <br>
+                <label>Post</label><br>
+                <textarea class="form-control" name="content" rows="4" cols="5"  ><%= item.content%></textarea>
+                <br>
+                
+                <br>
+            </div>
+            <button type="submit" class="btn btn-primary">Publish</button>
+        </form>
+    </div>
+    
+<%- include("partials/footer"); -%>

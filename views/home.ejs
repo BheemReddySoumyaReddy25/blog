@@ -1,0 +1,57 @@
+<%- include("partials/header"); -%>
+<body style="text-align: center;">
+      <section class="colored-section"  id="testimonials">
+        <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel" >
+          <div class="carousel-inner">
+            <div class="carousel-item active container-fluid" >
+              <h2 class="testimonial-text">The Jewel of Hampi- The Stone Chariot</h2>
+              <img class="testimonial-image"src="images/hampi.jpg" alt="hampi-profile">
+              <em> Nimbapura, Karnataka</em>
+            </div>
+            <div class="carousel-item container-fluid" >
+              <h2 class="testimonial-text">Kakatiya Rudreshwara-Ramappa Temple</h2>
+              <img class="testimonial-image" src="images/ramappa.jpg" alt="ramappa-profile">
+              <em>Palampet,Telangana</em>
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" ></span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+            <span class="carousel-control-next-icon" ></span>
+          </button>
+        </div>
+      </section>
+      <div class="container">
+        <h1>Home</h1>
+        <p><%=StartingContent %></p>
+      </div>
+      <div class="album py-5 bg-light">
+        <div class="container">
+          <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <% items.forEach(function(image){ %>  
+            <div class="col">
+              <div class="card shadow-sm">
+                <img src="data:image/<%=image.img.contentType%>;base64,
+                <%=image.img.data.toString('base64')%>" style="height: 200px;">
+                <div class="card-body">
+                  <h2 class="card-text"><%=image.name%> </h2>
+                  <em class="card-text"><%=image.location%></em>
+                  
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <a href="/posts/<%=image._id%>" type="button" class="btn btn-sm btn-primary" role="button">
+                        <i class="fa fa-eye "  aria-hidden="true"> View</i></a>
+                      <a href="/update/<%=image._id%>" type="button" class="btn btn-sm btn-warning" role="button" style="margin-left: 2px;" ><i class="fa fa-pencil "  aria-hidden="true"> Edit</i></a></a>
+                    </div>
+                    <a href="/delete/<%=image._id%>" type="button" class="btn btn-sm btn-outline-danger" role="button" style="float:right; " ><i class="fa fa-trash "  aria-hidden="true"> Delete</i></a></a>
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+            <% }) %>
+          </div>
+        </div>
+      </div>
+<%- include("partials/footer"); -%>
